@@ -1,0 +1,82 @@
+// Colors
+$colors: (
+  'primary': #1952E1,
+  'secondary': #9A9DA4,
+  'primary-hover': #1649CA,
+  'active': #000000,
+  'active-dark': #2E3E6E,
+  'text': (
+    'primary': #9A9DA4,
+    'secondary': #666666,
+    'white': white,
+    'black': #1A1A1A
+  ),
+  'background': (
+    'primary': #ffffff,
+    'primary-light': #f3f4f9,
+    'secondary': #f8f9fa,
+    'hover': #f5f5f5,
+    'white': white
+  ),
+  'border': (
+    'light': #e0e0e0,
+    'lighter': #f3f4f9
+  ),
+  'shadow': (
+    'light': rgba(0, 0, 0, 0.1),
+    'medium': rgba(0, 0, 0, 0.15)
+  ),
+  'error': #dc3545
+);
+
+// Spacing
+$spacing: (
+  'xs': 0.25rem,
+  'sm': 0.5rem,
+  'md': 1rem,
+  'lg': 1.5rem,
+  'xl': 2rem,
+  'xxl': 24px
+);
+
+// Typography
+$font-sizes: (
+  'xs': 14px,
+  'sm': 1rem,
+  'md': 1.25rem,
+  'lg': 18px
+);
+
+// Border radius
+$border-radius: (
+  'sm': 4px,
+  'md': 6px,
+  'lg': 8px
+);
+
+// Transitions
+$transition: all 0.2s ease;
+
+// Functions
+@function color($key, $subkey: null) {
+  @if $subkey {
+    $value: map-get($colors, $key);
+    @if type-of($value) == 'map' {
+      @return map-get($value, $subkey);
+    }
+    @return null;
+  }
+  @return map-get($colors, $key);
+}
+
+@function spacing($key) {
+  @return map-get($spacing, $key);
+}
+
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+@function border-radius($key) {
+  @return map-get($border-radius, $key);
+} 
